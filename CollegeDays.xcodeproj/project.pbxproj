@@ -14,6 +14,8 @@
 		8D27BF561EDC518600571615 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D27BF541EDC518600571615 /* LaunchScreen.storyboard */; };
 		8D27BF611EDC518600571615 /* CollegeDaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27BF601EDC518600571615 /* CollegeDaysTests.swift */; };
 		8D27BF6C1EDC518600571615 /* CollegeDaysUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27BF6B1EDC518600571615 /* CollegeDaysUITests.swift */; };
+		8D27BF7A1EDC8F4400571615 /* MemoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27BF791EDC8F4400571615 /* MemoriesViewController.swift */; };
+		BEB723721EDDB54C003501BB /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB723711EDDB54C003501BB /* MemoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		8D27BF671EDC518600571615 /* CollegeDaysUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollegeDaysUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D27BF6B1EDC518600571615 /* CollegeDaysUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeDaysUITests.swift; sourceTree = "<group>"; };
 		8D27BF6D1EDC518600571615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D27BF791EDC8F4400571615 /* MemoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriesViewController.swift; sourceTree = "<group>"; };
+		BEB723711EDDB54C003501BB /* MemoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				8D27BF4B1EDC518600571615 /* AppDelegate.swift */,
 				8D27BF4D1EDC518600571615 /* ViewController.swift */,
+				8D27BF791EDC8F4400571615 /* MemoriesViewController.swift */,
+				BEB723711EDDB54C003501BB /* MemoryCell.swift */,
 				8D27BF4F1EDC518600571615 /* Main.storyboard */,
 				8D27BF521EDC518600571615 /* Assets.xcassets */,
 				8D27BF541EDC518600571615 /* LaunchScreen.storyboard */,
@@ -262,6 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB723721EDDB54C003501BB /* MemoryCell.swift in Sources */,
+				8D27BF7A1EDC8F4400571615 /* MemoriesViewController.swift in Sources */,
 				8D27BF4E1EDC518600571615 /* ViewController.swift in Sources */,
 				8D27BF4C1EDC518600571615 /* AppDelegate.swift in Sources */,
 			);
@@ -516,6 +524,7 @@
 				8D27BF721EDC518600571615 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D27BF731EDC518600571615 /* Build configuration list for PBXNativeTarget "CollegeDaysTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +533,7 @@
 				8D27BF751EDC518600571615 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D27BF761EDC518600571615 /* Build configuration list for PBXNativeTarget "CollegeDaysUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +542,7 @@
 				8D27BF781EDC518600571615 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
