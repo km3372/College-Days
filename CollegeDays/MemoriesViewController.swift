@@ -12,9 +12,8 @@ import Photos
 import Speech
 
 class MemoriesViewController: UICollectionViewController {
-
-   
     
+    var memories = [URL]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +37,7 @@ class MemoriesViewController: UICollectionViewController {
         if authorized == false {
             
             if let vc = storyboard?.instantiateViewController(withIdentifier: "FirstRun") {
+                
                 navigationController?.present(vc, animated: true)
             }
         }
@@ -49,4 +49,47 @@ class MemoriesViewController: UICollectionViewController {
         
         checkPermissions()
     }
+    
+    func getDocumentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docmentsDirectory = paths[0]
+        
+        return docmentsDirectory
+    }
+    
+    func loadMemories() {
+        
+        memories.removeAll()
+        
+        //attempt to load all the memories in our documents directory
+        
+        guard let files = try?
+            FileManager.default.contentsOfDirectory(at: getDocumentsDirectory(), includingPropertiesForKeys: nil, options: []) else {return}
+        
+        //loop over every file
+        
+        for file in files {
+            let filename = file.lastPathComponent
+            
+            //check it ends with ".thumb" so we dont count each memory more than once
+            if filename.hasSuffix(".thumb") {
+                
+                //get the root name of the memory(i.e., without its patch extension)
+                let noExtension = filename.replacingOccurrences(of: ".thumb", with: "")
+                
+                //create a full path from the memory
+                
+                let memoryPath = getDocumentsDirectory().appendingPathComponent(noExtension)
+                
+                //add it to our array
+                memories.append(memoryPath)
+            }
+        }
+        
+        //reload our list of memories
+        collectionView?.reloadSections(IndexSet(integer: 1))
+    }
+    
+    
 }
