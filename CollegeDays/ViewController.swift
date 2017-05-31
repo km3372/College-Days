@@ -22,12 +22,59 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func requestPhotoPermissions() {
+        PHPhotoLibrary.requestAuthorization { [unowned self] authStatus in
+            
+            DispatchQueue.main.async {
+                if authStatus == .authorized {
+                    self.requestRecordPermission()
+                } else {
+                    self.helpLabel.text = "Photos permission was declined; please enable it in settings then tap Continue again"
+                }
+            }
+        }
+        
     }
-
+    
+    
+    func requestRecordPermission()  {
+        AVAudioSession.sharedInstance().requestRecordPermission() { [unowned self] allowed in
+            
+            DispatchQueue.main.async {
+                if allowed {
+                    self.requestTranscribePermissions()
+                } else {
+                    self.helpLabel.text = "Recording permission was declined; please enable it in settings then tap Continue again"
+                }
+            }
+            
+        }
+    }
+    
+    func requestTranscribePermissions() {
+        SFSpeechRecognizer.requestAuthorization { [unowned self] authStatus in
+            
+            DispatchQueue.main.async {
+                if authStatus == .authorized {
+                    self.authorizationComplete()
+                
+                } else {
+                    self.helpLabel.text = "Transcription permission was declined; please enable it in settings then tap Continue again"
+                }
+            }
+            
+        }
+    }
+    
+    func authorizationComplete() {
+        
+        dismiss(animated: true)
+    }
+    
+    
     @IBAction func requestedPermissions(_ sender: UIButton) {
+        
+        requestPhotoPermissions()
     }
 
 }
